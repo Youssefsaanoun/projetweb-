@@ -60,32 +60,31 @@ var questions = [
     correct: 1
   }
 ];
-var quizDiv = document.getElementById("quiz-questions");
-var submitBtn = document.getElementById("submit-quiz");
-var scoreDiv = document.getElementById("score");
-var resultsDiv = document.getElementById("results");
-var html = "";
-var i, j;
-for (i = 0; i < questions.length; i++) {
+var quizDiv =document.getElementById("quiz-questions");
+var submitBtn =document.getElementById("submit-quiz");
+var scoreDiv =document.getElementById("score");
+var resultsDiv =document.getElementById("results");
+var html ="";
+var i,j;
+for (i =0; i <questions.length; i++) {
   html += '<div class="question">';
-  html += '<p><b>' + (i + 1) + '.</b> ' + questions[i].question + '</p>';
+  html += '<p><b>'+ (i + 1) +'.</b> '+questions[i].question + '</p>';
 
   for (j = 0; j < questions[i].options.length; j++) {
     html +=
       '<label>' +
-      '<input type="radio" id="q' + i + '_' + j + '" name="q' + i + '" value="' + j + '">' +
-      ' ' + questions[i].options[j] +
+      '<input type="radio" id="q' + i + '_'+ j+'" name="q'+ i +'" value="'+j +'">' +
+      ' ' +questions[i].options[j] +
       '</label><br>';
   }
 
-  html += '</div>';
+  html +='</div>';
 }
-quizDiv.innerHTML = html;
-submitBtn.onclick = function () {
+quizDiv.innerHTML=html;
+submitBtn.onclick=function () {
   var score = 0;
-  var i, j;
-
-  for (i = 0; i < questions.length; i++) {
+  var i,j;
+  for (i = 0; i< questions.length; i++) {
     for (j = 0; j < questions[i].options.length; j++) {
       var radio = document.getElementById("q" + i + "_" + j);
 
@@ -94,6 +93,6 @@ submitBtn.onclick = function () {
       }
     }
   }
-  scoreDiv.innerHTML = "Votre score: " + score + " / " + questions.length;
+  scoreDiv.innerHTML = "Votre score: "+ score + " / " + questions.length;
   resultsDiv.classList.add("show");
 };
