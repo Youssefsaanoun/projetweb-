@@ -67,18 +67,16 @@ var resultsDiv =document.getElementById("results");
 var html ="";
 var i,j;
 for (i =0; i <questions.length; i++) {
-  html += '<div class="question">';
-  html += '<p><b>'+ (i + 1) +'.</b> '+questions[i].question + '</p>';
-
+  html+='<div class="question">';
+  html+='<p><b>'+ (i + 1)+'.</b> '+questions[i].question + '</p>';
   for (j = 0; j < questions[i].options.length; j++) {
     html +=
       '<label>' +
-      '<input type="radio" id="q' + i + '_'+ j+'" name="q'+ i +'" value="'+j +'">' +
+      '<input type="radio" id="q' +i+'_'+j+'"name="q'+ i +'" value="'+j +'">' +
       ' ' +questions[i].options[j] +
       '</label><br>';
   }
-
-  html +='</div>';
+  html+='</div>';
 }
 quizDiv.innerHTML=html;
 submitBtn.onclick=function () {
@@ -87,7 +85,6 @@ submitBtn.onclick=function () {
   for (i = 0; i< questions.length; i++) {
     for (j = 0; j < questions[i].options.length; j++) {
       var radio = document.getElementById("q" + i + "_" + j);
-
       if (radio && radio.checked && j === questions[i].correct) {
         score++;
       }
